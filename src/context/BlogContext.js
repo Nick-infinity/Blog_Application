@@ -58,8 +58,12 @@ const addBlogPost = (dispatch) => {
 	};
 };
 
+// delete posts from server
 const deleteBlogPost = (dispatch) => {
-	return (id) => {
+	return async (id) => {
+		await jsonServer.delete(`/blogposts/${id}`);
+		// we can either call dispatch fucntion to delete the post in ui (less overhead)
+		// or we can cal getblogposts again to reload the blogposts after deletion
 		dispatch({ type: 'delete', payload: id });
 	};
 };
