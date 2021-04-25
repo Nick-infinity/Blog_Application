@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import { Context } from '../context/BlogContext';
 
 const BlogPostForm = ({ onSubmit, initialValues }) => {
-	const [title, setTitle] = useState('');
-	const [content, setContent] = useState('');
+	const [title, setTitle] = useState(initialValues.title);
+	const [content, setContent] = useState(initialValues.content);
 	return (
 		<View>
 			<Text style={styles.label}>Enter Title</Text>
@@ -22,6 +22,13 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
 			<Button title="Save Blog Post" onPress={() => onSubmit(title, content)} />
 		</View>
 	);
+};
+
+BlogPostForm.defaultProps = {
+	initialValues: {
+		title: '',
+		content: '',
+	},
 };
 const styles = StyleSheet.create({
 	inputStyle: {
