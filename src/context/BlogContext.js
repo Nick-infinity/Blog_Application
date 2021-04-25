@@ -69,9 +69,10 @@ const deleteBlogPost = (dispatch) => {
 };
 
 const editBlogPost = (dispatch) => {
-	return /*async*/ (id, title, content, callback) => {
+	return async (id, title, content, callback) => {
 		try {
 			//await azios.post(p,p,p);
+			await jsonServer.put(`/blogposts/${id}`, { title, content });
 			dispatch({
 				type: 'edit',
 				payload: { id: id, title: title, content: content },

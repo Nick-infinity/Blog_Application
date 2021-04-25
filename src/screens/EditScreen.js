@@ -15,7 +15,7 @@ const EditScreen = ({ route, navigation }) => {
 				content: blogPostWithId.content,
 			}}
 			onSubmit={(title, content) => {
-				editBlogPost(id, title, content, () => navigation.navigate('Index'));
+				editBlogPost(id, title, content, () => navigation.navigate('Show'));
 			}}
 		/>
 	);
