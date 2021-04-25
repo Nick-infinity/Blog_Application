@@ -38,8 +38,10 @@ const styles = StyleSheet.create({
 		marginBottom: 15,
 		padding: 5,
 		margin: 5,
+		fontStyle: 'italic',
 	},
 	label: {
+		fontWeight: 'bold',
 		fontSize: 20,
 		marginLeft: 5,
 		marginBottom: 5,

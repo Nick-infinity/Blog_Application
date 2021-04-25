@@ -22,9 +22,30 @@ const App = () => {
 						headerTitleAlign: 'center',
 					}}
 				/>
-				<Stack.Screen name="Show" component={ShowScreen} />
-				<Stack.Screen name="Create" component={CreateScreen} />
-				<Stack.Screen name="Edit" component={EditScreen} />
+				<Stack.Screen
+					name="Show"
+					component={ShowScreen}
+					options={{
+						title: 'Post Content',
+						headerTitleAlign: 'center',
+					}}
+				/>
+				<Stack.Screen
+					name="Create"
+					component={CreateScreen}
+					options={{
+						title: 'Create Post',
+						headerTitleAlign: 'center',
+					}}
+				/>
+				<Stack.Screen
+					name="Edit"
+					component={EditScreen}
+					options={{
+						title: 'Edit Index',
+						headerTitleAlign: 'center',
+					}}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
