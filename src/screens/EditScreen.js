@@ -10,14 +10,15 @@ import {
 import { Context } from '../context/BlogContext';
 
 const EditScreen = ({ route, navigation }) => {
-	const [title, setTitle] = useState('');
-	const [content, setContent] = useState('');
 	const { state } = useContext(Context);
 	const { id } = route.params;
 	const blogPostWithId = state.find((blogPost) => blogPost.id === id);
+
+	const [title, setTitle] = useState(blogPostWithId.title);
+	const [content, setContent] = useState(blogPostWithId.content);
+
 	return (
 		<View>
-			<Text>{blogPostWithId.title}</Text>
 			<Text style={styles.label}>Enter Title</Text>
 			<TextInput
 				style={styles.inputStyle}
