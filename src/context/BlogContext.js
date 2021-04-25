@@ -51,7 +51,6 @@ const editBlogPost = (dispatch) => {
 				type: 'edit',
 				payload: { id: id, title: title, content: content },
 			});
-			console.log(title);
 			callback();
 		} catch (e) {}
 	};
