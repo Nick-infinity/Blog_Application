@@ -20,8 +20,12 @@ const blogReducer = (state, action) => {
 };
 
 const addBlogPost = (dispatch) => {
-	return (title, content) => {
-		dispatch({ type: 'add', payload: { title: title, content: content } });
+	return /*async*/ (title, content, callback) => {
+		try {
+			//await azios.post(p,p,p);
+			dispatch({ type: 'add', payload: { title: title, content: content } });
+			callback();
+		} catch (e) {}
 	};
 };
 
