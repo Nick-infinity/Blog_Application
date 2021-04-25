@@ -4,7 +4,7 @@ import { Context } from '../context/BlogContext';
 import BlogPostForm from '../components/BlogPostForm';
 
 const EditScreen = ({ route, navigation }) => {
-	const { state } = useContext(Context);
+	const { state, editBlogPost } = useContext(Context);
 	const { id } = route.params;
 	const blogPostWithId = state.find((blogPost) => blogPost.id === id);
 
@@ -14,7 +14,11 @@ const EditScreen = ({ route, navigation }) => {
 				title: blogPostWithId.title,
 				content: blogPostWithId.content,
 			}}
-			onSubmit={(title, content) => {}}
+			onSubmit={(title, content) => {
+				editBlogPost(id, blogPostWithId.title, blogPostWithId.content, () =>
+					navigation.navigate('Index')
+				);
+			}}
 		/>
 	);
 };

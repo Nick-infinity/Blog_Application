@@ -13,6 +13,8 @@ const blogReducer = (state, action) => {
 			];
 		case 'delete':
 			return state.filter((blogPost) => blogPost.id !== action.payload);
+		case 'edit':
+			return;
 
 		default:
 			return state;
@@ -35,8 +37,21 @@ const deleteBlogPost = (dispatch) => {
 	};
 };
 
+const editBlogPost = (dispatch) => {
+	return /*async*/ (id, title, content, callback) => {
+		try {
+			//await azios.post(p,p,p);
+			dispatch({
+				type: 'edit',
+				payload: { id: id, title: title, content: content },
+			});
+			callback();
+		} catch (e) {}
+	};
+};
+
 export const { Context, Provider } = createDataContext(
 	blogReducer,
-	{ addBlogPost: addBlogPost, deleteBlogPost: deleteBlogPost },
+	{ addBlogPost: addBlogPost, deleteBlogPost: deleteBlogPost, editBlogPost },
 	[]
 );
