@@ -27,6 +27,14 @@ const IndexScreen = ({ navigation }) => {
 	// call get blog posts only when our screen loads first time
 	useEffect(() => {
 		getBlogPosts();
+
+		const listener = navigation.addListener('focus', () => {
+			getBlogPosts();
+		});
+
+		return () => {
+			listener.remove();
+		};
 	}, []);
 
 	return (
