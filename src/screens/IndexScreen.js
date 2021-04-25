@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect } from 'react';
+import React, { useContext, useLayoutEffect, useEffect } from 'react';
 import {
 	View,
 	Text,
@@ -22,7 +22,13 @@ const IndexScreen = ({ navigation }) => {
 		});
 	});
 
-	const { state, deleteBlogPost } = useContext(Context);
+	const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
+
+	// call get blog posts only when our screen loads first time
+	useEffect(() => {
+		getBlogPosts();
+	}, []);
+
 	return (
 		<View>
 			<FlatList

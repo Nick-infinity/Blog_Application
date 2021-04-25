@@ -32,7 +32,7 @@ const blogReducer = (state, action) => {
 };
 
 // make requsts to server
-const getBlogPost = (dispatch) => {
+const getBlogPosts = (dispatch) => {
 	return async () => {
 		const response = await jsonServer.get('/blogposts');
 		// resposne.data === [{},{},{}]
@@ -76,7 +76,7 @@ export const { Context, Provider } = createDataContext(
 		addBlogPost: addBlogPost,
 		deleteBlogPost: deleteBlogPost,
 		editBlogPost,
-		getBlogPost,
+		getBlogPosts,
 	},
 	[]
 );
