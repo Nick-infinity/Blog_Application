@@ -19,20 +19,20 @@ const EditScreen = ({ route, navigation }) => {
 
 	return (
 		<View>
-			<Text style={styles.label}>Enter Title</Text>
+			<Text style={styles.label}>Edit Title</Text>
 			<TextInput
 				style={styles.inputStyle}
 				value={title}
 				onChangeText={(text) => setTitle(text)}
 			></TextInput>
-			<Text style={styles.label}>Enter Content</Text>
+			<Text style={styles.label}>Edit Content</Text>
 			<TextInput
 				style={styles.inputStyle}
 				value={content}
 				onChangeText={(text) => setContent(text)}
 			></TextInput>
 			<Button
-				title="Add Blog Post"
+				title="Save Edits"
 				onPress={() => {
 					//editBlogPost
 				}}
