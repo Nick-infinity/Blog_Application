@@ -26,7 +26,7 @@ const App = () => {
 					name="Show"
 					component={ShowScreen}
 					options={{
-						title: 'Post Content',
+						title: 'Display Post',
 						headerTitleAlign: 'center',
 					}}
 				/>

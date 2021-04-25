@@ -13,7 +13,7 @@ const ShowScreen = ({ route, navigation }) => {
 					style={{ marginRight: 20 }}
 					onPress={() => navigation.navigate('Edit', { id: id })}
 				>
-					<Feather name="edit" size={30} />
+					<Feather name="edit" size={25} />
 				</TouchableOpacity>
 			),
 		});
