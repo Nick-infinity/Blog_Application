@@ -1,59 +1,23 @@
 import React, { useContext, useState } from 'react';
-import {
-	View,
-	Text,
-	StyleSheet,
-	TouchableOpacity,
-	Button,
-	TextInput,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Context } from '../context/BlogContext';
+import BlogPostForm from '../components/BlogPostForm';
 
 const EditScreen = ({ route, navigation }) => {
 	const { state } = useContext(Context);
 	const { id } = route.params;
 	const blogPostWithId = state.find((blogPost) => blogPost.id === id);
 
-	const [title, setTitle] = useState(blogPostWithId.title);
-	const [content, setContent] = useState(blogPostWithId.content);
-
 	return (
-		<View>
-			<Text style={styles.label}>Edit Title</Text>
-			<TextInput
-				style={styles.inputStyle}
-				value={title}
-				onChangeText={(text) => setTitle(text)}
-			></TextInput>
-			<Text style={styles.label}>Edit Content</Text>
-			<TextInput
-				style={styles.inputStyle}
-				value={content}
-				onChangeText={(text) => setContent(text)}
-			></TextInput>
-			<Button
-				title="Save Edits"
-				onPress={() => {
-					//editBlogPost
-				}}
-			/>
-		</View>
+		<BlogPostForm
+			initialValues={{
+				title: blogPostWithId.title,
+				content: blogPostWithId.content,
+			}}
+			onSubmit={(title, content) => {}}
+		/>
 	);
 };
 
-const styles = StyleSheet.create({
-	inputStyle: {
-		fontSize: 18,
-		borderWidth: 1,
-		borderColor: 'black',
-		marginBottom: 15,
-		padding: 5,
-		margin: 5,
-	},
-	label: {
-		fontSize: 20,
-		marginLeft: 5,
-		marginBottom: 5,
-	},
-});
+const styles = StyleSheet.create({});
 export default EditScreen;
