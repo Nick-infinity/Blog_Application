@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import IndexScreen from './src/screens/IndexScreen';
 import { Provider } from './src/context/BlogContext';
+import ShowScreen from './src/screens/ShowScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ const App = () => {
 					component={IndexScreen}
 					options={{ title: 'Blog Index', headerTitleAlign: 'center' }}
 				/>
+				<Stack.Screen name="Show" component={ShowScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
