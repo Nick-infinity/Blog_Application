@@ -4,6 +4,7 @@ import { Context } from '../context/BlogContext';
 const CreateScreen = () => {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
+	const { addBlogPost } = useContext(Context);
 
 	return (
 		<View>
@@ -17,9 +18,12 @@ const CreateScreen = () => {
 			<TextInput
 				style={styles.inputStyle}
 				value={content}
-				onChangeText={(text) => setTitle(text)}
+				onChangeText={(text) => setContent(text)}
 			></TextInput>
-			<Button title="Add Blog Post" onPress={() => console.log('subit')} />
+			<Button
+				title="Add Blog Post"
+				onPress={() => addBlogPost(title, content)}
+			/>
 		</View>
 	);
 };
