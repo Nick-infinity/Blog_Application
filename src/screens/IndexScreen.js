@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import {
 	View,
 	Text,
@@ -10,6 +10,19 @@ import {
 import { Context } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 const IndexScreen = ({ navigation }) => {
+	useLayoutEffect(() => {
+		navigation.setOptions({
+			headerRight: () => (
+				<TouchableOpacity
+					style={{ marginRight: 20 }}
+					onPress={() => navigation.navigate('Create')}
+				>
+					<Feather name="plus" size={30} />
+				</TouchableOpacity>
+			),
+		});
+	});
+
 	const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 	return (
 		<View>

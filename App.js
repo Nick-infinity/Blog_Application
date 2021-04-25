@@ -16,7 +16,10 @@ const App = () => {
 				<Stack.Screen
 					name="Index"
 					component={IndexScreen}
-					options={{ title: 'Blog Index', headerTitleAlign: 'center' }}
+					options={{
+						title: 'Blog Index',
+						headerTitleAlign: 'center',
+					}}
 				/>
 				<Stack.Screen name="Show" component={ShowScreen} />
 				<Stack.Screen name="Create" component={CreateScreen} />
