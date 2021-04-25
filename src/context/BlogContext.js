@@ -41,13 +41,20 @@ const getBlogPosts = (dispatch) => {
 	};
 };
 
+// add blog posts to server and show in ui
 const addBlogPost = (dispatch) => {
-	return /*async*/ (title, content, callback) => {
-		try {
-			//await azios.post(p,p,p);
-			dispatch({ type: 'add', payload: { title: title, content: content } });
+	return async (title, content, callback) => {
+		// 	try {
+		// 		//await azios.post(p,p,p);
+		// 		dispatch({ type: 'add', payload: { title: title, content: content } });
+		// 		callback();
+		// 	} catch (e) {}
+		// };
+
+		await jsonServer.post('/blogposts', { title: title, content });
+		if (callback) {
 			callback();
-		} catch (e) {}
+		}
 	};
 };
 
